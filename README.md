@@ -1,11 +1,7 @@
 <p align="center">
-  <img src="docs/assets/mark.png" alt="NeoX" width="96">
-</p>
-
-<p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/neox-white.png">
-    <img src="docs/assets/neox-dark.png" alt="neox" width="160">
+    <source media="(prefers-color-scheme: light)" srcset="docs/assets/mark-on-light.png">
+    <img src="docs/assets/mark.png" alt="NeoX" width="96">
   </picture>
 </p>
 
