@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="NeoX">
+  <g fill="currentColor">
+    <!-- corners -->
+    <path d="M20 20h32v12H32v20H20V20zm56 0h32v32H96V32H76V20zM20 76h12v20h20v12H20V76zm76 0h12v32H76v-12h20V76z"/>
+    <!-- arrow into center -->
+    <path d="M34 94l30-30h-10V48h26v26H66l30 30-8 8-22-22v10H52V80L30 102z"/>
+  </g>
+</svg>
