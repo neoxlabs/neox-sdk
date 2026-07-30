@@ -1,14 +1,11 @@
 <p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/mark-white.png">
-    <img src="docs/assets/mark-dark.png" alt="NeoX" width="88">
-  </picture>
+  <img src="docs/assets/mark.png" alt="NeoX" width="96">
 </p>
 
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="docs/assets/neox-white.png">
-    <img src="docs/assets/neox-dark.png" alt="neox" width="180">
+    <img src="docs/assets/neox-dark.png" alt="neox" width="160">
   </picture>
 </p>
 
@@ -16,7 +13,7 @@
 
 <p align="center">
   <strong>Build and run agents on the NeoX runtime.</strong><br>
-  在 NeoX runtime 上构建与运行 Agent。
+  在 NeoX runtime 上构建与运行 Agent.
 </p>
 
 <p align="center">
