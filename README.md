@@ -1,3 +1,7 @@
+<p align="center">
+  <a href="https://github.com/neoxlabs/neox"><img src="https://raw.githubusercontent.com/neoxlabs/neox/main/docs/assets/mark.png" alt="NeoX" width="72"></a>
+</p>
+
 # @mk-co/neox-sdk
 
 **Neox Agent SDK** — BYOK providers, tools, streaming, sessions.
