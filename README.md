@@ -1,77 +1,37 @@
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: light)" srcset="docs/assets/mark-on-light.png">
-    <img src="docs/assets/mark.png" alt="NeoX" width="96">
-  </picture>
-</p>
+# @mk-co/neox-sdk
 
-<h1 align="center">NeoX Agent SDK</h1>
-
-<p align="center">
-  <strong>Build and run agents on the NeoX runtime.</strong><br>
-  在 NeoX runtime 上构建与运行 Agent.
-</p>
-
-<p align="center">
-  <a href="https://github.com/neoxlabs/neox-sdk/stargazers"><img src="https://img.shields.io/github/stars/neoxlabs/neox-sdk?style=social" alt="GitHub stars"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT"></a>
-</p>
-
-<p align="center">
-  <a href="https://neox-dev.com">Website</a> ·
-  <a href="https://neox-dev.com/download">Download</a> ·
-  <a href="https://neox-dev.com/docs">Docs</a> ·
-  <a href="https://github.com/neoxlabs/neox">NeoX</a> ·
-  <a href="mailto:support@neox-dev.com">Contact</a>
-</p>
-
----
-
-## Install
+**Neox Agent SDK** — BYOK providers, tools, streaming, sessions.
 
 ```bash
 npm install @mk-co/neox-sdk zod
 ```
 
-Requires Node.js 20+.
+## Download & run
 
-## API
-
-| Export | Role |
-|--------|------|
-| `Agent` | `run()` / `stream()` / `abort()` |
-| `tool()` | Zod schema → JSON Schema tools |
-| `provider` / `providerFromEnv` | Multi-provider configuration |
-| `createSession` / `Session` | Session helpers |
-| `@mk-co/neox-sdk/testing` | `mockLlm` / replay for offline tests |
-
-Events include `text_delta`, `tool_call`, `tool_result`, `thinking`, `done`, and `error`.
-
-## Tools
-
-```ts
-import { Agent, tool } from '@mk-co/neox-sdk'
-import { z } from 'zod'
-
-const weather = tool({
-  name: 'get_weather',
-  description: 'Get weather for a city',
-  schema: z.object({ city: z.string() }),
-  handler: async ({ city }) => ({ temp: 22, city }),
-})
-
-const agent = new Agent({ model: 'claude-sonnet-4-6', tools: [weather] })
-for await (const ev of agent.stream('Weather in Tokyo?')) {
-  if (ev.type === 'text_delta') process.stdout.write(ev.delta)
-}
+```bash
+git clone https://github.com/neoxlabs/neox-sdk-starter.git
+cd neox-sdk-starter
+npm install
+npm run mock    # offline, no API key
+# cp .env.example .env  # set one key
+npm run hello
 ```
 
-## Design
+Starter: https://github.com/neoxlabs/neox-sdk-starter
 
-The SDK drives the same `StreamedRunner` engine used by NeoX Desktop and CLI. It does not load Desktop UI, product memory, or cloud billing paths into your process.
+## Docs (use cases)
 
-Examples: [`examples/`](./examples/) · Overview: [neoxlabs/neox](https://github.com/neoxlabs/neox)
+- https://neox-dev.com/developers
+- https://neox-dev.com/developers/use-cases
+- https://neox-dev.com/developers/quickstart
 
-## License
+## Hello
 
-[MIT](./LICENSE) © Neox Labs
+```ts
+import { Agent } from '@mk-co/neox-sdk';
+
+const agent = new Agent({ model: 'claude-sonnet-4-6' });
+console.log((await agent.run('What is 2 + 2?')).text);
+```
+
+MIT. Runtime ships on npm (`@mk-co/neox-sdk`); this repo is the public entry + examples.
